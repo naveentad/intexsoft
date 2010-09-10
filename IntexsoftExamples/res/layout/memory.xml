@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<FrameLayout android:id="@+id/layoutMain" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_weight="1">
+		<LinearLayout android:id="@+id/layoutAnimatedCompass"
+			android:layout_width="fill_parent" android:layout_height="fill_parent" />
+		<Button android:id="@+id/switch_scheme" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="@string/switch_scheme"
+			android:textSize="18sp">
+		</Button>
+		<GridView
+		android:id="@+id/selectIconView"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+    	android:padding="10dp"
+    	android:verticalSpacing="10dp"
+    	android:horizontalSpacing="10dp"
+    	android:numColumns="auto_fit"
+	    android:columnWidth="60dp"
+    	android:stretchMode="columnWidth"
+    	android:layout_gravity="bottom"
+    	android:gravity="center"/>
+		
+	</FrameLayout>
+</LinearLayout>

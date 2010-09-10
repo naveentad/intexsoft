@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">IntexSoft Examples</string>
+	<string name="memory_example">Memory Usage</string>
+	<string name="switch_scheme">Switch scheme</string>
+</resources>
