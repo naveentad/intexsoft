@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import by.intexsoft.android.examples.camera.CameraActivity;
+import by.intexsoft.android.examples.map.MapDisplay;
 import by.intexsoft.android.examples.memory.MemoryUsage;
 
 
@@ -29,6 +31,8 @@ public class IntexsoftExamples extends ListActivity {
     private List<Map<String, Object>> prepareData() {
         List<Map<String, Object>> myData = new ArrayList<Map<String, Object>>();
         addItem(myData, R.string.memory_example,MemoryUsage.class);
+        addItem(myData, R.string.map_example,MapDisplay.class);
+        addItem(myData, R.string.camera_example,CameraActivity.class);
         return myData;
     }
     
