@@ -3,4 +3,7 @@
 	<string name="app_name">IntexSoft Examples</string>
 	<string name="memory_example">Memory Usage</string>
 	<string name="switch_scheme">Switch scheme</string>
+	<string name="map_example">Map</string>
+	<string name="camera_example">Camera</string>
+	<string name="camera_error">Cannot connect to camera</string>
 </resources>

@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="by.intexsoft.android.examples" android:versionCode="1"
-	android:versionName="1.0" >
-	<application android:icon="@drawable/app_icon" 
+	android:versionName="1.0">
+	<application android:icon="@drawable/app_icon"
 		android:debuggable="true" android:label="@string/app_name">
-		
+		<uses-library android:name="com.google.android.maps" />
 		<activity android:name="IntexsoftExamples">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-		
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
 		<activity android:name=".memory.MemoryUsage" android:theme="@style/Theme.NoBackground"
 			android:screenOrientation="portrait" android:label="@string/memory_example">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".map.MapDisplay" android:theme="@style/Theme.NoBackground"
+			android:label="@string/map_example">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".camera.CameraActivity" android:theme="@style/Theme.NoBackground"
+			android:screenOrientation="landscape" android:label="@string/camera_example">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+			</intent-filter>
 		</activity>
 	</application>
 	<uses-sdk android:minSdkVersion="7" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-feature android:name="android.hardware.camera" />
 </manifest>

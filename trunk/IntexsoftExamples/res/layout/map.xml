@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:layout_weight="1.2">
+	<com.google.android.maps.MapView
+		android:id="@+id/myMapView" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:enabled="true"
+		android:clickable="true" android:apiKey="0JQiUCy3nzzzVzm_Cxjo9IeIDXvXRLiY8Lho0AA">
+		<!-- 0JQiUCy3nzzxWc_COYjR_sHCTbhEnYt4KO2nO6A -->
+	</com.google.android.maps.MapView>
+	<TableLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:gravity="bottom">
+		<LinearLayout android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:gravity="right"
+			android:orientation="vertical">
+		</LinearLayout>
+		<ZoomControls android:id="@+id/zoomcontrols"
+			android:layout_gravity="bottom" android:gravity="center"
+			android:layout_width="fill_parent" android:layout_height="wrap_content" />
+	</TableLayout>
+</FrameLayout>
