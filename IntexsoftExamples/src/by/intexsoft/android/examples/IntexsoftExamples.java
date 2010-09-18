@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import by.intexsoft.android.examples.camera.CameraActivity;
+import by.intexsoft.android.examples.geo.GEOActivity;
 import by.intexsoft.android.examples.map.MapDisplay;
 import by.intexsoft.android.examples.memory.MemoryUsage;
 
@@ -33,6 +34,7 @@ public class IntexsoftExamples extends ListActivity {
         addItem(myData, R.string.memory_example,MemoryUsage.class);
         addItem(myData, R.string.map_example,MapDisplay.class);
         addItem(myData, R.string.camera_example,CameraActivity.class);
+//        addItem(myData, R.string.geo_example,GEOActivity.class);
         return myData;
     }
     
