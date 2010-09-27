@@ -60,6 +60,9 @@ public class GEOActivity extends Activity {
 							+ (provider != null ? " from " + provider : ""),
 					Toast.LENGTH_SHORT).show();
 			currentLocation.setEnabled(true);
+			new GeoCodeTask(GEOActivity.this.getApplicationContext(), satsCount, location.getLatitude(), location.getLongitude())
+			.execute("");
+
 		}
 
 		public void onProviderDisabled(String provider) {
