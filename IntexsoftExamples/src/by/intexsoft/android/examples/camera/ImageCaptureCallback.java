@@ -84,9 +84,10 @@ public class ImageCaptureCallback implements PictureCallback {
 		} else {
 			g.translate(-middleY,-middleX);
 		}
-		g.drawBitmap(bm, null, new Rect(0, 0, CameraActivity.CAPTURE_DESIRED_WIDTH, CameraActivity.CAPTURE_DESIRED_HEIGHT), null);
+		Rect rect=new Rect(0, 0, CameraActivity.CAPTURE_DESIRED_WIDTH, CameraActivity.CAPTURE_DESIRED_HEIGHT);
+		g.drawBitmap(bm, null, rect, null);
 		Bitmap binocular=BitmapFactory.decodeResource(activity.getApplicationContext().getResources(),getBinocularResource());
-		g.drawBitmap(binocular, 0,0, null);
+		g.drawBitmap(binocular,null, rect, null);
 		binocular.recycle();
 		return graphics;
 	}
