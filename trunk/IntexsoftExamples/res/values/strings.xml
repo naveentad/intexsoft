@@ -9,6 +9,14 @@
 	<string name="geo_example">GEO</string>
 	<string name="providers_disabled">No Location Provider available. Please, enable one.</string>
 	<string name="gps_failed_network_disabled">No GPS signal available. Please, enable Network Location Provider.</string>
-	<string name="geo_message_location_received">Location received</string>
+	<string name="geo_message_location_received">Received</string>
 	<string name="geo_message_receiving_location">Receiving location...</string>
+	<string name="geo_message_receiving_from_network">Switched to network...</string>
+	<string name="geo_text_wait">Wait for GPS signal</string>
+	<string name="geo_text_sats_available">SATs available</string>
+	<string name="geo_text_resolve_location">Resolving location...</string>
+	<string name="geo_message_from">from</string>
+	<string name="geo_text_location">Location</string>
+	
+	
 </resources>

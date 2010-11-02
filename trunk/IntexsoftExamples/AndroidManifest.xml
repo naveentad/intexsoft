@@ -30,8 +30,8 @@
 				<action android:name="android.intent.action.MAIN" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".geo.GEOActivity" android:theme="@style/Theme.NoBackground"
-			android:label="@string/geo_example">
+		<activity android:name=".geo.GEOActivity" 
+			android:screenOrientation="portrait" android:label="@string/geo_example">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 			</intent-filter>

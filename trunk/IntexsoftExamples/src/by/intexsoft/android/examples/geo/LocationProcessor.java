@@ -30,10 +30,8 @@ public class LocationProcessor implements GpsStatus.Listener {
 	private boolean firstFixReceived = false;
 	private long startTime = -1;
 	private boolean switchToNetwork = false;
-	private String lastMessage = "";
 	private int satsAvailable = 0;
 	private long timeInterval;
-	private TextView satsCount = null;
 	private LocationManager locationManager;
 	private LocationListener locationListener;
 	private float minDistance;
@@ -48,10 +46,6 @@ public class LocationProcessor implements GpsStatus.Listener {
 		this.locationListener = locationListener;
 		this.minTime = minTime;
 		this.minDistance = minDistance;
-	}
-
-	public void setDebugDisplayView(TextView tv) {
-		satsCount = tv;
 	}
 
 	public void onGpsStatusChanged(int event) {
@@ -97,8 +91,7 @@ public class LocationProcessor implements GpsStatus.Listener {
 
 					if (timeInterval > GPS_FINAL_WAIT_INTERVAL) {
 						// If we are unable to get the fix till now, we switch
-						// to
-						// network anyway
+						// to network anyway
 						switchToNetwork = true;
 					}
 				}
@@ -110,6 +103,7 @@ public class LocationProcessor implements GpsStatus.Listener {
 					locationManager.requestLocationUpdates(
 							LocationManager.NETWORK_PROVIDER, minTime,
 							minDistance, locationListener);
+					((TextView)activity.findViewById(R.id.information)).setText(R.string.geo_message_receiving_from_network);
 				} else {
 					Toast.makeText(activity.getApplicationContext(),
 							R.string.gps_failed_network_disabled,
@@ -123,23 +117,14 @@ public class LocationProcessor implements GpsStatus.Listener {
 			startTime = System.currentTimeMillis();
 			switchToNetwork = false;
 			firstFixReceived = false;
-			lastMessage = "GPS started";
-			break;
-		case GpsStatus.GPS_EVENT_STOPPED:
-			lastMessage = "GPS stopped";
 			break;
 		case GpsStatus.GPS_EVENT_FIRST_FIX:
-			lastMessage = "GPS fix received";
 			firstFixReceived = true;
 			break;
 		}
 
-			if (satsCount != null) {
-				satsCount.setText((switchToNetwork ? "Switched to network. "
-						: satsAvailable + " " + timeInterval)
-						+ " " + lastMessage);
-			}
-
+		((TextView)activity.findViewById(R.id.satscount)).setText(activity.getText(R.string.geo_text_sats_available)+": "+satsAvailable);
+		((TextView)activity.findViewById(R.id.time)).setText(activity.getText(R.string.geo_text_wait)+": "+Math.round(timeInterval/1000)+" s");
 	}
 
 	public Location initializeProvider() {

@@ -2,7 +2,6 @@ package by.intexsoft.android.examples.geo;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -11,13 +10,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import by.intexsoft.android.examples.R;
 
 public class GEOActivity extends Activity {
 
 	private LocationProcessor locationProcessor;
-	private TextView satsCount = null;
 	private Button currentLocation;
 
 	@Override
@@ -29,22 +26,21 @@ public class GEOActivity extends Activity {
 
 		locationProcessor = new LocationProcessor(this,
 				(LocationManager) getSystemService(Context.LOCATION_SERVICE),
-				locationListener, 15000, 50);
-
-		satsCount = (TextView)findViewById(R.id.information);
-		satsCount.setBackgroundColor(Color.BLACK);
-
-		locationProcessor.setDebugDisplayView(satsCount);
+				locationListener, 0, 0);
 
 		currentLocation = (Button) findViewById(R.id.my_location);
 		currentLocation.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				currentLocation.setEnabled(false);
+
+				((TextView) GEOActivity.this.findViewById(R.id.satscount)).setText("");
+				((TextView) GEOActivity.this.findViewById(R.id.time)).setText("");
+				((TextView) GEOActivity.this.findViewById(R.id.location)).setText("");
+				((TextView) GEOActivity.this.findViewById(R.id.resolved_location)).setText("");
+				
 				locationProcessor.initializeProvider();
-				Toast.makeText(GEOActivity.this.getApplicationContext(),
-						R.string.geo_message_receiving_location,
-						Toast.LENGTH_SHORT).show();
+				((TextView) GEOActivity.this.findViewById(R.id.information)).setText(R.string.geo_message_receiving_location);
 			}
 		});
 	}
@@ -54,14 +50,17 @@ public class GEOActivity extends Activity {
 			final String provider = location.getProvider();
 			// When location is received we stop listening for location updates
 			locationProcessor.stopProvider();
-			Toast.makeText(
-					GEOActivity.this.getApplicationContext(),
-					getText(R.string.geo_message_location_received)
-							+ (provider != null ? " from " + provider : ""),
-					Toast.LENGTH_SHORT).show();
+			((TextView) GEOActivity.this.findViewById(R.id.information))
+					.setText(getText(R.string.geo_message_location_received)
+							+ (provider != null ? " "+getText(R.string.geo_message_from)+" " + provider : ""));
+
 			currentLocation.setEnabled(true);
-			new GeoCodeTask(GEOActivity.this.getApplicationContext(), satsCount, location.getLatitude(), location.getLongitude())
-			.execute("");
+			((TextView) findViewById(R.id.resolved_location)).setText(R.string.geo_text_resolve_location);
+			((TextView) findViewById(R.id.location)).setText(getText(R.string.geo_text_location)+":\n"+location.getLatitude()+"\n"+location.getLongitude());
+			
+			new GeoCodeTask(GEOActivity.this.getApplicationContext(),
+					(TextView) findViewById(R.id.resolved_location), location.getLatitude(), location.getLongitude())
+					.execute("");
 
 		}
 
