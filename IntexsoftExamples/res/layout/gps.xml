@@ -2,23 +2,27 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:layout_weight="1.2">
-			<LinearLayout android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:gravity="right"
-		android:orientation="vertical"> 
-	<TextView android:id="@+id/information" android:layout_width="fill_parent"
-		android:layout_height="wrap_content"></TextView>
-				<Button android:id="@+id/my_location" android:layout_width="wrap_content" android:layout_marginRight="12dip"
-					android:layout_height="wrap_content" 
-					android:layout_gravity="right"  android:drawableLeft="@drawable/ic_menu_mylocation">
-				</Button>
-		
-		</LinearLayout> 
-		
-	<!--
-		<TableLayout android:layout_width="fill_parent"
-		android:layout_height="fill_parent" android:gravity="bottom">
-		<LinearLayout android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:gravity="right"
-		android:orientation="vertical"> </LinearLayout> </TableLayout>
-	-->
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:gravity="top"
+		android:orientation="vertical">
+		<Button android:id="@+id/my_location" android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center" android:drawableLeft="@drawable/ic_menu_mylocation">
+		</Button>
+		<TextView android:id="@+id/information" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
+			android:textSize="10pt"></TextView>
+		<TextView android:id="@+id/satscount" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
+			android:textSize="10pt"></TextView>
+		<TextView android:id="@+id/time" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
+			android:textSize="10pt"></TextView>
+		<TextView android:id="@+id/location" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
+			android:textSize="10pt"></TextView>
+		<TextView android:id="@+id/resolved_location" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:gravity="center" android:layout_gravity="center"
+			android:textSize="10pt"></TextView>		
+	</LinearLayout>
 </FrameLayout>

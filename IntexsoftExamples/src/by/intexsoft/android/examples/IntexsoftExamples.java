@@ -34,7 +34,7 @@ public class IntexsoftExamples extends ListActivity {
         addItem(myData, R.string.memory_example,MemoryUsage.class);
         addItem(myData, R.string.map_example,MapDisplay.class);
         addItem(myData, R.string.camera_example,CameraActivity.class);
-//        addItem(myData, R.string.geo_example,GEOActivity.class);
+        addItem(myData, R.string.geo_example,GEOActivity.class);
         return myData;
     }
     
