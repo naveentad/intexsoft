@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.location.GpsSatellite;
 import android.location.GpsStatus;
-import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.widget.TextView;
@@ -103,7 +102,8 @@ public class LocationProcessor implements GpsStatus.Listener {
 					locationManager.requestLocationUpdates(
 							LocationManager.NETWORK_PROVIDER, minTime,
 							minDistance, locationListener);
-					((TextView)activity.findViewById(R.id.information)).setText(R.string.geo_message_receiving_from_network);
+					((TextView) activity.findViewById(R.id.information))
+							.setText(R.string.geo_message_receiving_from_network);
 				} else {
 					Toast.makeText(activity.getApplicationContext(),
 							R.string.gps_failed_network_disabled,
@@ -123,12 +123,15 @@ public class LocationProcessor implements GpsStatus.Listener {
 			break;
 		}
 
-		((TextView)activity.findViewById(R.id.satscount)).setText(activity.getText(R.string.geo_text_sats_available)+": "+satsAvailable);
-		((TextView)activity.findViewById(R.id.time)).setText(activity.getText(R.string.geo_text_wait)+": "+Math.round(timeInterval/1000)+" s");
+		((TextView) activity.findViewById(R.id.satscount)).setText(activity
+				.getText(R.string.geo_text_sats_available)
+				+ ": " + satsAvailable);
+		((TextView) activity.findViewById(R.id.time)).setText(activity
+				.getText(R.string.geo_text_wait)
+				+ ": " + Math.round(timeInterval / 1000) + " s");
 	}
 
-	public Location initializeProvider() {
-		boolean switchedToNetworkState = switchToNetwork;
+	public void initializeProvider() {
 		String provider = LocationManager.GPS_PROVIDER;
 		if (!locationManager.isProviderEnabled(provider)) {
 			provider = LocationManager.NETWORK_PROVIDER;
@@ -147,10 +150,6 @@ public class LocationProcessor implements GpsStatus.Listener {
 		// Requesting updates
 		locationManager.requestLocationUpdates(provider, minTime, minDistance,
 				locationListener);
-		if (switchedToNetworkState) {
-			provider = LocationManager.NETWORK_PROVIDER;
-		}
-		return locationManager.getLastKnownLocation(provider);
 	}
 
 	private void openSettings() {
